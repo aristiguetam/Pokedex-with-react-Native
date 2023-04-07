@@ -9,7 +9,7 @@ export const useAnimation = () => {
     Animated.timing(opacity, {
       toValue: 1,
       duration,
-      useNativeDriver: false,
+      useNativeDriver: true,
     }).start();
   };
 
@@ -17,7 +17,7 @@ export const useAnimation = () => {
     Animated.timing(opacity, {
       toValue: 0,
       duration: 300,
-      useNativeDriver: false,
+      useNativeDriver: true,
     }).start();
   };
 

@@ -8,7 +8,9 @@ interface Props {
 
 export const PokemonDetails = ({pokemon}: Props) => {
   return (
-    <ScrollView style={{...StyleSheet.absoluteFillObject}}>
+    <ScrollView
+      style={{...StyleSheet.absoluteFillObject}}
+      showsVerticalScrollIndicator={false}>
       {/* Types pokemon */}
       <View style={{...styles.container, marginTop: 370}}>
         <Text style={{...styles.title}}> Types</Text>
@@ -53,9 +55,63 @@ export const PokemonDetails = ({pokemon}: Props) => {
           style={{...styles.basicSprites}}
         />
       </ScrollView>
-      {/* Habilidades */}
+
+      {/* abilities */}
       <View style={{...styles.container}}>
-        <Text style={{...styles.title}}> Types</Text>
+        <Text style={{...styles.title}}> Habilidades base</Text>
+        <View style={{flexDirection: 'row'}}>
+          {pokemon.abilities.map(({ability}) => (
+            <Text
+              style={{...styles.regularText, marginRight: 10}}
+              key={ability.name}>
+              {ability.name}
+            </Text>
+          ))}
+        </View>
+      </View>
+
+      {/* Moves */}
+      <View style={{...styles.container}}>
+        <Text style={{...styles.title}}> Movimientos base</Text>
+        <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+          {pokemon.moves.map(({move}) => (
+            <Text
+              style={{...styles.regularText, marginRight: 10}}
+              key={move.name}>
+              {move.name}
+            </Text>
+          ))}
+        </View>
+      </View>
+      {/* Stats */}
+      <View style={{...styles.container}}>
+        <Text style={{...styles.title}}> Stats</Text>
+        <View>
+          {pokemon.stats.map((stat, i) => (
+            <View key={stat.stat.name + i} style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  ...styles.regularText,
+                  marginRight: 10,
+                  width: 150,
+                }}>
+                {stat.stat.name}
+              </Text>
+              <Text style={{...styles.regularText, fontWeight: 'bold'}}>
+                {stat.base_stat}
+              </Text>
+            </View>
+          ))}
+        </View>
+
+        {/* Sprites Final */}
+
+        <View style={{alignItems: 'center', marginBottom: 20}}>
+          <FadeInImage
+            uri={pokemon.sprites.front_default}
+            style={{...styles.basicSprites}}
+          />
+        </View>
       </View>
     </ScrollView>
   );
