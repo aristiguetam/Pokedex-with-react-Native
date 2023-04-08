@@ -10,11 +10,12 @@ import {
 
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {RooStackParams} from '../navigator/NavigatorStack';
+
 import ImageColors from 'react-native-image-colors';
 
 import {FadeInImage} from './FadeInImage';
 import {useGetPokemonColors} from '../hooks/useGetPokemonColors';
-import {RooStackParams} from '../navigator/NavigatorStack';
 import {SimplePokemon} from '../interfaces/pokemonInterfaces';
 
 const windowWidth = Dimensions.get('window').width;
@@ -26,12 +27,11 @@ interface Props {
 export const PokemonCard = ({pokemon}: Props) => {
   const {navigate} = useNavigation<StackNavigationProp<RooStackParams>>();
 
+  const [bgColor, setBgColor] = useState('grey');
   const isMounted = useRef(true);
   // const {bgColor, getPokemonColors} = useGetPokemonColors(pokemon.picture);
 
   // fuera del custom hooks
-
-  const [bgColor, setBgColor] = useState('grey');
 
   const getPokemonColors = async () => {
     const colors = await ImageColors.getColors(pokemon.picture, {
