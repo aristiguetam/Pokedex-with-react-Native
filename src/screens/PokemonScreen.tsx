@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import {StackScreenProps} from '@react-navigation/stack';
-import {RooStackParams} from '../navigator/NavigatorStack';
+import {RooStackParams} from '../navigator/tab1';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import Icon from 'react-native-vector-icons/Ionicons';

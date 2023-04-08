@@ -5,12 +5,13 @@ import {SimplePokemon} from '../interfaces/pokemonInterfaces';
 
 export type RooStackParams = {
   HomeScreen: undefined;
+  SearchScreen: undefined;
   PokemonScreen: {simplePokemon: SimplePokemon; color: string};
 };
 
 const Stack = createStackNavigator<RooStackParams>();
 
-export const NavigatorStack = () => {
+export const Tab1 = () => {
   return (
     <Stack.Navigator
       screenOptions={{

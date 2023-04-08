@@ -8,8 +8,7 @@ import {styles} from '../theme/appTheme';
 
 export const HomeScreen = () => {
   const {top} = useSafeAreaInsets();
-
-  const {simplePokemonList, isLoading, loadPokemons} = usePokemonPaginated();
+  const {simplePokemonList, loadPokemons} = usePokemonPaginated();
 
   return (
     <>
@@ -28,6 +27,7 @@ export const HomeScreen = () => {
           keyExtractor={pokemon => pokemon.id}
           showsVerticalScrollIndicator={false}
           numColumns={2}
+          //Header
           ListHeaderComponent={
             <Text
               style={{

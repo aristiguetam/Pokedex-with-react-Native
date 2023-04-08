@@ -10,7 +10,7 @@ import {
 
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RooStackParams} from '../navigator/NavigatorStack';
+import {RooStackParams} from '../navigator/tab1';
 
 import ImageColors from 'react-native-image-colors';
 

@@ -1,8 +1,10 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigatorStack} from './NavigatorStack';
-import {SearchScreen} from '../screens/SearchScreen';
 import {Platform} from 'react-native';
+
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+import {Tab1} from './tab1';
+import {Tab2Screen} from './Tab2';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,14 +21,16 @@ export const Tabs = () => {
           marginBottom: Platform.OS === 'ios' ? 0 : 10,
         },
         tabBarStyle: {
+          position: 'absolute',
+          backgroundColor: 'rgba(255,255,255,0.92)',
           borderWidth: 0,
           elevation: 0,
-          height: Platform.OS === 'ios' ? 0 : 60,
+          height: Platform.OS === 'ios' ? 80 : 60,
         },
       }}>
       <Tab.Screen
-        name="NavigatorStack"
-        component={NavigatorStack}
+        name="Tab1"
+        component={Tab1}
         options={{
           tabBarLabel: 'Listado',
           tabBarIcon: ({color}) => (
@@ -35,14 +39,14 @@ export const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="SearchScreen"
+        name="Tab2Screen"
+        component={Tab2Screen}
         options={{
           tabBarLabel: 'Search',
           tabBarIcon: ({color}) => (
-            <Icon name="search-outline" color={color} size={20} />
+            <Icon name="search-outline" color={color} size={30} />
           ),
         }}
-        component={SearchScreen}
       />
     </Tab.Navigator>
   );
